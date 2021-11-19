@@ -6,10 +6,10 @@ dotenv.config({
 });
 
 const db = mysql.createConnection({
-  host: DB_HOST,
-  user: DB_USER,
-  password: DB_PASSWORD,
-  database: DB_DATABASE,
+  host: "eu-cdbr-west-01.cleardb.com",
+  user: "b42a7f9283b519",
+  password: "fcbad914",
+  database: "heroku_6fc8e0f4cdb8f98",
 });
 db.connect(function (err) {
   if (err) {
