@@ -1,7 +1,11 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://moja-kuhinja.netlify.app/",
+  })
+);
 
 const PORT = 3001;
 //registration
