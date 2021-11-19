@@ -42,7 +42,7 @@ router.post(
       "SELECT * FROM users WHERE email = ?",
       [userEmail],
       (err, res) => {
-        if (res.length === 0 && errors.isEmpty()) {
+        if (errors.isEmpty()) {
           const sqlInsert =
             "INSERT INTO users (name, email, password) VALUES (?, ?, ?)";
           db.query(
