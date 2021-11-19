@@ -232,10 +232,10 @@ router.get("/savedrecipes", (req, res) => {
    ON savings.recipes_id = recipes.id 
    WHERE savings.users_id = ${user_id}`;
   db.query(query, (err, result) => {
-    res.send(result);
     if (err) {
       console.log(err);
     }
+    res.send(result);
   });
 });
 
