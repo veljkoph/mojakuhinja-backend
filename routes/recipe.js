@@ -108,7 +108,6 @@ router.get("/isliked", (req, result) => {
     (err, res) => {
       if (err) {
         console.log(err);
-        res.send(err);
       }
       if (res.length !== 0) {
         result.send(true);
@@ -127,7 +126,6 @@ router.get("/isdisliked", (req, result) => {
     (err, res) => {
       if (err) {
         console.log(err);
-        res.send(err);
       }
       if (res.length !== 0) {
         result.send(true);
