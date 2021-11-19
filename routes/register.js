@@ -42,7 +42,7 @@ router.post(
       "SELECT * FROM users WHERE email = ?",
       [userEmail],
       (err, res) => {
-        if (errors.isEmpty()) {
+        if (res.length === 0 && errors.isEmpty()) {
           const sqlInsert =
             "INSERT INTO users (name, email, password) VALUES (?, ?, ?)";
           db.query(
@@ -121,6 +121,7 @@ router.put("/changepic", (req, res) => {
 
   db.query(sql, (err, res2) => {
     res.send(res2);
+    console.log(res2);
   });
 });
 
