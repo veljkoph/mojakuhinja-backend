@@ -43,6 +43,9 @@ router.post("/add", (req, res) => {
     ],
     (err, result) => {
       res.send(result);
+      if (err) {
+        console.log(err);
+      }
     }
   );
 });
@@ -224,6 +227,9 @@ router.get("/all", (req, res) => {
   const sqlGet = "SELECT * FROM recipes LIMIT 50";
   db.query(sqlGet, (err, result) => {
     res.send(result);
+    if (err) {
+      console.log(err);
+    }
   });
 });
 
@@ -232,6 +238,9 @@ router.get("/byname/:name", (req, res) => {
   const sqlGetName = `SELECT * FROM recipes WHERE title LIKE '%${req.params.name}%'`;
   db.query(sqlGetName, (err, result) => {
     res.send(result);
+    if (err) {
+      console.log(err);
+    }
   });
 });
 
@@ -240,6 +249,9 @@ router.get("/bycategory/:category", (req, res) => {
   const sqlGetName = `SELECT * FROM recipes WHERE category LIKE '%${req.params.category}%' OR tags LIKE '%${req.params.category}%'`;
   db.query(sqlGetName, (err, result) => {
     res.send(result);
+    if (err) {
+      console.log(err);
+    }
   });
 });
 
@@ -248,6 +260,9 @@ router.get("/my/:id", (req, res) => {
   const sqlGetMyRec = `SELECT * FROM recipes WHERE users_id LIKE '${req.params.id}'`;
   db.query(sqlGetMyRec, (err, result) => {
     res.send(result);
+    if (err) {
+      console.log(err);
+    }
   });
 });
 
