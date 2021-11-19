@@ -11,13 +11,5 @@ const db = mysql.createPool({
   password: "fcbad914",
   database: "heroku_6fc8e0f4cdb8f98",
 });
-db.connect(function (err) {
-  if (err) {
-    console.log(err, "Error db");
-    setTimeout(2000);
-  } else {
-    console.log("Connected!");
-  }
-});
 
 module.exports = db;
