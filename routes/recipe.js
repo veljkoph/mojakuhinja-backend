@@ -88,7 +88,7 @@ router.get("/issaved", (req, result) => {
   db.query(
     `SELECT * FROM savings WHERE recipes_id=${recipe_id} AND users_id=${user_id}`,
     (err, res) => {
-      if (err2) {
+      if (err) {
         console.log(err);
       }
       if (res.length !== 0) {
