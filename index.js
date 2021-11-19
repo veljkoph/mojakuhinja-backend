@@ -20,7 +20,7 @@ app.use("/user", registerRouter);
 const recipeRouter = require("./routes/recipe");
 app.use("/recipe", recipeRouter);
 
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT || PORT, () => {
   console.log("Running on a port");
 });
 // app.listen(3001, () => {

@@ -13,7 +13,8 @@ const db = mysql.createConnection({
 });
 db.connect(function (err) {
   if (err) {
-    console.log(err);
+    console.log(err, "Error db");
+    setTimeout(2000);
   } else {
     console.log("Connected!");
   }
