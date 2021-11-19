@@ -34,7 +34,6 @@ router.post(
     const userName = req.body.userName;
     const userEmail = req.body.userEmail;
     const userPassword = req.body.userPassword;
-    const userPasswordConf = req.body.userPasswordConf;
     const errors = validationResult(req);
     const hashedPassword = await bcrypt.hash(userPassword, 10);
 
