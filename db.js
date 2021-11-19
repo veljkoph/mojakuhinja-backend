@@ -5,7 +5,7 @@ dotenv.config({
   path: ".env",
 });
 
-const db = mysql.createConnection({
+const db = mysql.createPool({
   host: "eu-cdbr-west-01.cleardb.com",
   user: "b42a7f9283b519",
   password: "fcbad914",
