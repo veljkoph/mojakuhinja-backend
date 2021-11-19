@@ -240,15 +240,15 @@ router.get("/savedrecipes", (req, res) => {
 });
 
 // //getting all recipes from database
-// router.get("/all", (req, res) => {
-//   const sqlGet = "SELECT * FROM recipes LIMIT 50";
-//   db.query(sqlGet, (err, result) => {
-//     res.send(result);
-//     if (err) {
-//       console.log(err);
-//     }
-//   });
-// });
+router.get("/all", (req, res) => {
+  const sqlGet = "SELECT * FROM recipes LIMIT 50";
+  db.query(sqlGet, (err, result) => {
+    res.send(result);
+    if (err) {
+      console.log(err);
+    }
+  });
+});
 
 //search by title
 router.get("/byname/:name", (req, res) => {
