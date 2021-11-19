@@ -21,12 +21,12 @@ app.use(function (req, res, next) {
   next();
 });
 
-const registerRouter = require("./routes/register.js");
-app.use("/user", registerRouter);
+// const registerRouter = require("./routes/register.js");
+// app.use("/user", registerRouter);
 
 //recipes
-const recipeRouter = require("./routes/recipe");
-app.use("/recipe", recipeRouter);
+// const recipeRouter = require("./routes/recipe");
+// app.use("/recipe", recipeRouter);
 
 app.listen(process.env.PORT || PORT, () => {
   console.log("Running on a port");
