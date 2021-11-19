@@ -17,7 +17,7 @@ router.use(
 
 router.post("/add", (req, res) => {
   const userDescr = req.body.userDescr;
-  const userLikes = req.body.userLikes;
+
   const userTitle = req.body.userTitle;
   const userIngridients = req.body.userIngridients;
   const userImage = req.body.userImage;
@@ -27,12 +27,12 @@ router.post("/add", (req, res) => {
   const userID = req.body.userID;
 
   const sqlInsert =
-    "INSERT INTO recipes (descr,likes,title,ingridients, image, users_id, category, time, tags)  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);";
+    "INSERT INTO recipes (descr,title,ingridients, image, users_id, category, time, tags)  VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
   db.query(
     sqlInsert,
     [
       userDescr,
-      userLikes,
+
       userTitle,
       userIngridients,
       userImage,
