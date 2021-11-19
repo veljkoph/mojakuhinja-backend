@@ -7,7 +7,7 @@ app.use(
   })
 );
 
-const PORT = 3001;
+const PORT = process.env.PORT || "3001";
 //registration
 
 app.use(function (req, res, next) {
@@ -21,12 +21,14 @@ app.use(function (req, res, next) {
   next();
 });
 
-// const registerRouter = require("./routes/register.js");
-// app.use("/user", registerRouter);
+const registerRouter = require("./routes/register.js");
+app.use("/user", registerRouter);
 
 //recipes
 // const recipeRouter = require("./routes/recipe");
 // app.use("/recipe", recipeRouter);
+
+app.set("Port", PORT);
 
 app.listen(process.env.PORT || PORT, () => {
   console.log("Running on a port");
