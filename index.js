@@ -21,8 +21,8 @@ app.use(function (req, res, next) {
   next();
 });
 
-const registerRouter = require("./routes/register.js");
-app.use("/user", registerRouter);
+// const registerRouter = require("./routes/register.js");
+// app.use("/user", registerRouter);
 
 //recipes
 // const recipeRouter = require("./routes/recipe");
