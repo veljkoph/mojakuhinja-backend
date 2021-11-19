@@ -88,6 +88,9 @@ router.get("/issaved", (req, result) => {
   db.query(
     `SELECT * FROM savings WHERE recipes_id=${recipe_id} AND users_id=${user_id}`,
     (err, res) => {
+      if (err2) {
+        console.log(err);
+      }
       if (res.length !== 0) {
         result.send(true);
       } else {
@@ -103,6 +106,10 @@ router.get("/isliked", (req, result) => {
   db.query(
     `SELECT * FROM likes WHERE recipes_id=${recipe_id} AND users_id=${user_id}`,
     (err, res) => {
+      if (err) {
+        console.log(err);
+        res.send(err);
+      }
       if (res.length !== 0) {
         result.send(true);
       } else {
@@ -118,6 +125,10 @@ router.get("/isdisliked", (req, result) => {
   db.query(
     `SELECT * FROM dislikes WHERE recipes_id=${recipe_id} AND users_id=${user_id}`,
     (err, res) => {
+      if (err) {
+        console.log(err);
+        res.send(err);
+      }
       if (res.length !== 0) {
         result.send(true);
       } else {
@@ -134,6 +145,9 @@ router.post("/dislike", (req, res) => {
   db.query(
     `SELECT * FROM dislikes WHERE recipes_id=${recipe_id} AND users_id=${user_id}`,
     (err2, res2) => {
+      if (err2) {
+        console.log(err2);
+      }
       if (res2.length != 0) {
         res.send("Korisnik je vec dislajkovao");
       } else {
@@ -149,7 +163,9 @@ router.post("/dislike", (req, res) => {
         db.query(
           `UPDATE recipes SET dislikes = dislikes+1 WHERE id = ${recipe_id}`,
           (err4, res4) => {
-            // res.send(res4);
+            if (err4) {
+              console.log(err4);
+            }
           }
         );
       }
@@ -183,6 +199,9 @@ router.post("/save", (req, res) => {
   db.query(
     `SELECT * FROM savings WHERE recipes_id=${recipe_id} AND users_id=${user_id}`,
     (err2, res2) => {
+      if (err2) {
+        console.log(err2);
+      }
       if (res2.length !== 0) {
         res.send("Unsaved");
         db.query(
