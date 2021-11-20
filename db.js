@@ -6,10 +6,10 @@ dotenv.config({
 });
 
 const db = mysql.createPool({
-  host: "eu-cdbr-west-01.cleardb.com",
-  user: "b42a7f9283b519",
-  password: "fcbad914",
-  database: "heroku_6fc8e0f4cdb8f98",
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_DATABASE,
 });
 
 module.exports = db;
