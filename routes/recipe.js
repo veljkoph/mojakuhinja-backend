@@ -284,13 +284,14 @@ router.get("/my/:id", (req, res) => {
 });
 
 //delete from db
-router.delete("/delete/:id", (req, res, next) => {
+router.delete("/delete", (req, res) => {
+  const user_id = req.query.userID;
+  const recipe_id = req.query.recipeID;
   db.query(
-    "DELETE FROM recipes WHERE id = ?",
-    [req.params.id],
+    `DELETE FROM recipes WHERE id = ${recipe_id} AND users_id = ${user_id}`,
     (err, result) => {
       if (!err) {
-        res.send(`User with id ${req.params.id} deleted`);
+        res.send(`User with id ${req.params.id} deleted recipe`);
       } else console.log(err);
     }
   );
