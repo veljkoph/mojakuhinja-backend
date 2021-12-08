@@ -285,8 +285,8 @@ router.get("/my/:id", (req, res) => {
 
 //delete from db
 router.delete("/delete", (req, res) => {
-  const user_id = req.query.userID;
-  const recipe_id = req.query.recipeID;
+  const user_id = req.body.userID;
+  const recipe_id = req.body.recipeID;
   db.query(
     `DELETE FROM recipes WHERE id = ${recipe_id} AND users_id = ${user_id}`,
     (err, result) => {
