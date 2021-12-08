@@ -291,7 +291,7 @@ router.delete("/delete", (req, res) => {
     `DELETE FROM recipes WHERE id = ${recipe_id} AND users_id = ${user_id}`,
     (err, result) => {
       if (!err) {
-        res.send(`User with id ${req.params.id} deleted recipe`);
+        res.send(`Recipe deleted!`);
       } else console.log(err);
     }
   );
