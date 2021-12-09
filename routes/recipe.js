@@ -17,7 +17,6 @@ router.use(
 
 router.post("/add", (req, res) => {
   const userDescr = req.body.userDescr;
-
   const userTitle = req.body.userTitle;
   const userIngridients = req.body.userIngridients;
   const userImage = req.body.userImage;
@@ -32,7 +31,6 @@ router.post("/add", (req, res) => {
     sqlInsert,
     [
       userDescr,
-
       userTitle,
       userIngridients,
       userImage,
@@ -86,7 +84,7 @@ router.get("/issaved", (req, result) => {
   const user_id = req.query.userID;
   const recipe_id = req.query.recipeID;
   db.query(
-    `SELECT * FROM savings WHERE recipes_id=${recipe_id} AND users_id=${user_id}`,
+    `SELECT * FROM savings WHERE recipes_id=${recipe_id} AND users_id=${user_id} ORDER BY id DESC`,
     (err, res) => {
       if (err) {
         console.log(err);
@@ -241,7 +239,7 @@ router.get("/savedrecipes", (req, res) => {
 
 // //getting all recipes from database
 router.get("/all", (req, res) => {
-  const sqlGet = "SELECT * FROM recipes LIMIT 50";
+  const sqlGet = "SELECT * FROM recipes ORDER BY id DESC LIMIT 30";
   db.query(sqlGet, (err, result) => {
     res.send(result);
     if (err) {
