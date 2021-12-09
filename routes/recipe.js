@@ -84,7 +84,7 @@ router.get("/issaved", (req, result) => {
   const user_id = req.query.userID;
   const recipe_id = req.query.recipeID;
   db.query(
-    `SELECT * FROM savings WHERE recipes_id=${recipe_id} AND users_id=${user_id} ORDER BY id DESC`,
+    `SELECT * FROM savings WHERE recipes_id=${recipe_id} AND users_id=${user_id} `,
     (err, res) => {
       if (err) {
         console.log(err);
@@ -228,7 +228,7 @@ router.get("/savedrecipes", (req, res) => {
    FROM recipes
    INNER JOIN savings
    ON savings.recipes_id = recipes.id
-   WHERE savings.users_id = ${user_id}`;
+   WHERE savings.users_id = ${user_id} ORDER BY savings.id DESC`;
   db.query(query, (err, result) => {
     if (err) {
       console.log(err);
